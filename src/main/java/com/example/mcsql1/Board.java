@@ -193,12 +193,12 @@ public class Board extends AnchorPane {
     private void generateChunk(int x){
         Database.callStatement("CALL CreateChunk("+worldID+","
             + x +","
-            +heightNoise(x -2)+","
-            +heightNoise(x -1)+","
-            +heightNoise(x)+","
-            +heightNoise(x +1)+","
-            +heightNoise(x +2)+","
-            +tempNoise(x)+","
+            +(heightNoise(x-2)<10 ? "0" : "")+heightNoise(x -2)+""
+            +(heightNoise(x-1)<10 ? "0" : "")+heightNoise(x -1)+""
+            +(heightNoise(x)<10 ? "0" : "")+heightNoise(x)+""
+            +(heightNoise(x+1)<10 ? "0" : "")+heightNoise(x +1)+""
+            +(heightNoise(x+2)<10 ? "0" : "")+heightNoise(x +2)+""
+            +tempNoise(x)+""
             +waterNoise(x)+")");
     }
 
